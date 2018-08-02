@@ -1,7 +1,7 @@
 var fs = require('fs')
 var path = require('path')
 
-const secret = `THIS IS A SECRET`
+const secret = `THIS IS A SECRET SO DONT TELL`
 
 const img = path.join( __dirname , "../test/img_test.bmp" )
 
@@ -12,7 +12,8 @@ function encode( message, file ) {
     console.log(`File to encode: ${file}`)
 
     let title = ""
-    let bin = header( message, title ) + messageToBinary( title ) + messageToBinary( message )
+    let bin = headerMode( message, title)
+    //let bin = basicMode( message )
     bin = cutTwoDigits( bin )
 
     const writeStream = fs.createWriteStream(file, {flags: 'r+', start:54})
@@ -23,6 +24,14 @@ function encode( message, file ) {
 
         writeStream.write(buffer)
     })
+}
+
+function headerMode( message, title){
+    return header( message, title ) + messageToBinary( title ) + messageToBinary( message )
+}
+
+function basicMode( message ){
+    return messageToBinary( message )
 }
 
 function messageToBinary( message ) {

@@ -10,28 +10,44 @@ function decode( file ) {
     
     fs.readFile( file, function(err, buffer) {  
         if (err) throw err
-        var messageLength
-        var titleLength
-        var title
-        var message
-        extract( buffer, 0, 64, (bin) =>{
-            messageLength = parseInt(bin, 2)
-        })
-        extract( buffer, 64, 72, (bin) =>{
-            titleLength = parseInt(bin, 2)
-        })
-        if (titleLength > 0){
-            extract( buffer, 72, 72+titleLength, (bin) =>{
-                title = bin
-            })
-        } else title = undefined
-        extract( buffer, 72+titleLength, 72+titleLength+messageLength*8, (bin) =>{
-            message = bin
-            message = analyze(bin)
-        })
-        console.log(title)
-        console.log(message)
+        console.log(headerMode( buffer ))
+        //console.log(basicMode( buffer, 1000 ))
     })
+}
+
+function headerMode( data ) {
+    var messageLength
+    var titleLength
+    var title
+    var message
+    extract( data, 0, 64, (bin) =>{
+        messageLength = parseInt(bin, 2)
+    })
+    extract( data, 64, 72, (bin) =>{
+        titleLength = parseInt(bin, 2)
+    })
+    if (titleLength > 0){
+        extract( data, 72, 72+titleLength, (bin) =>{
+            title = bin
+        })
+    } else title = undefined
+    extract( data, 72+titleLength, 72+titleLength+messageLength*8, (bin) =>{
+        message = analyze(bin)
+    })
+    return {
+        title: title,
+        message: message
+    }
+}
+
+function basicMode( data, length ){
+    var message
+    extract( data, 0, length*8, (bin) =>{
+        message = analyze( bin, true)
+    })
+    return {
+        message: message
+    }
 }
 
 function extract( buffer, start, end, callback ){
@@ -47,12 +63,15 @@ function extract( buffer, start, end, callback ){
     callback(data)
 }
 
-function analyze( binary ){
+function analyze( binary, debug){
     let bytes = binary.match(/.{1,8}/g)
     var output = ""
     for (i=0;i<bytes.length;i++){
         let byte = parseInt(bytes[i], 2)
-        output += String.fromCharCode( byte )
+        if (!(byte < 31 && debug === true)){
+            let char = String.fromCharCode( byte )
+            output += char
+        }
     }
     return output
 }
