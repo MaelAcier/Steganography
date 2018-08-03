@@ -1,12 +1,12 @@
 var fs = require('fs')
 var path = require('path')
 
-const img = path.join( __dirname , "../test/img_test.bmp" )
+const img = path.join( __dirname , "../test/small_test.bmp" )
 
 decode(img)
 
 function decode( file ) {
-    console.log(`File to decode: ${file}`)
+    console.log(`Image to decode: ${file}`)
     
     fs.readFile( file, function(err, buffer) {  
         if (err) throw err
