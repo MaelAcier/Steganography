@@ -1,9 +1,9 @@
 var fs = require('fs')
 var path = require('path')
 
-const img = path.join( __dirname , "../test/small_test.bmp" )
+const img = path.join( __dirname , "../test/test.bmp" )
 
-decode(img)
+//decode(img)
 
 function decode( file ) {
     console.log(`Image to decode: ${file}`)
@@ -23,15 +23,16 @@ function headerMode( data ) {
     extract( data, 0, 64, (bin) =>{
         messageLength = parseInt(bin, 2)
     })
-    extract( data, 64, 72, (bin) =>{
+    extract( data, 64, 80, (bin) =>{
+        
         titleLength = parseInt(bin, 2)
     })
     if (titleLength > 0){
-        extract( data, 72, 72+titleLength, (bin) =>{
-            title = bin
+        extract( data, 80, 80+titleLength, (bin) =>{
+            title = analyze(bin)
         })
     } else title = undefined
-    extract( data, 72+titleLength, 72+titleLength+messageLength*8, (bin) =>{
+    extract( data, 80+titleLength, 80+titleLength+messageLength, (bin) =>{
         message = analyze(bin)
     })
     return {
