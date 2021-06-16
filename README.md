@@ -1,3 +1,2 @@
 # Steganography
 
-test
