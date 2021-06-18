@@ -2,6 +2,23 @@
   "type": "contributor-assistant/CLA",
   "version": 1,
   "data": {
-    "signatures": []
+    "signatures": [
+      {
+        "name": "Foo",
+        "email": "foo@bar.com",
+        "user": null,
+        "coAuthoredWith": 52361520,
+        "prNumber": 23
+      },
+      {
+        "name": "Maël Acier",
+        "email": "oganexon@protonmail.com",
+        "user": {
+          "databaseId": 52361520,
+          "login": "oganexon"
+        },
+        "prNumber": 23
+      }
+    ]
   }
 }
