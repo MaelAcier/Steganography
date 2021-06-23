@@ -2,16 +2,6 @@
   "type": "contributor-assistant/CLA",
   "version": 1,
   "data": {
-    "signatures": [
-      {
-        "name": "Maël Acier",
-        "email": "oganexon@protonmail.com",
-        "user": {
-          "databaseId": 52361520,
-          "login": "oganexon"
-        },
-        "prNumber": 27
-      }
-    ]
+    "signatures": []
   }
 }
