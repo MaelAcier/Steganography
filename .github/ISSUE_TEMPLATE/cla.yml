@@ -26,7 +26,7 @@ body:
   attributes:
     label: Age
     description: Age in years
-    placeholder: 21
+    placeholder: "21"
   validations:
     required: false
 - type: checkboxes
