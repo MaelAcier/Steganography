@@ -3,7 +3,35 @@
   "version": 1,
   "data": {
     "documentSHA": "",
-    "signatures": [],
+    "signatures": [
+      {
+        "user": {
+          "databaseId": 52361520,
+          "login": "oganexon"
+        },
+        "issueNumber": 39,
+        "date": 1624894488684,
+        "customFields": [
+          {
+            "type": "q/a",
+            "id": "name",
+            "question": "Full Name",
+            "answer": "Maël Acier"
+          },
+          {
+            "type": "q/a",
+            "id": "email",
+            "question": "Email",
+            "answer": "mael.acier@sap.com"
+          },
+          {
+            "type": "q/a",
+            "question": "How do you sign ?",
+            "answer": "I am signing on behalf of myself."
+          }
+        ]
+      }
+    ],
     "superseded": [],
     "invalidated": []
   }
