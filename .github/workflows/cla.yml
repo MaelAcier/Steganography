@@ -10,7 +10,6 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - name: "CLA Assistant"
-        if: ${{ github.event.issue.pull_request || github.event_name == 'pull_request_target' }}
         uses: oganexon/CLA-experiments/actions/cla@main
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
