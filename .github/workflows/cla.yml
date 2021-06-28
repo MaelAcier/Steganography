@@ -1,5 +1,6 @@
 name: "CLA Assistant"
 on:
+  issues:
   issue_comment:
   pull_request_target:
     types: [opened,synchronize,labeled,unlabeled]
