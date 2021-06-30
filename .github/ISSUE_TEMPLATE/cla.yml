@@ -1,7 +1,7 @@
 name: Contributor License Agreement
 description: Sign the Contributor License Agreement
 title: "[CLA]: "
-labels: [CLA]
+labels: ["signature form"]
 body:
 - type: markdown
   attributes:
