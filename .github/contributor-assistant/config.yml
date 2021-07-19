@@ -1,6 +1,9 @@
-type: contributor-assistant/signatures/settings
+type: contributor-assistant/settings
 version: 1
 data:
-  storage:
-    form: signature-form.yml
-  ignoreList: ["@CONTRIBUTOR"]
+  - type: contributor-assistant/signatures/settings
+    version: 1
+    data:
+      storage:
+        form: signature-form.yml
+      ignoreList: ["@CONTRIBUTOR"]
