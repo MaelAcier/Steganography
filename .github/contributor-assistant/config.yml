@@ -3,4 +3,4 @@ version: 1
 data:
   storage:
     form: signature-form.yml
-  ignore-list: ["@CONTRIBUTOR"]
+  ignoreList: ["@CONTRIBUTOR"]
