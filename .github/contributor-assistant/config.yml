@@ -1,7 +1,7 @@
-type: contributor-assistant/settings
+type: contributor-assistant/config
 version: 1
 data:
-  - type: contributor-assistant/signatures/settings
+  - type: contributor-assistant/signatures/config
     version: 1
     data:
       storage:
