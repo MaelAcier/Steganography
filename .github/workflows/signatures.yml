@@ -14,7 +14,7 @@ jobs:
     steps:
       - name: Signature Assistant ✍️
         if : github.event.label.name == 'signature form' || github.event.comment.body == 'recheck' || github.event.issue.pull_request || github.event_name == 'pull_request_target' # various conditions to limit the triggering of the action
-        uses: cla-assistant/contributor-assistant/actions/signatures@main
+        uses: oganexon/CLA-experiments/actions/signatures@main
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
           PERSONAL_ACCESS_TOKEN : ${{ secrets.PERSONAL_ACCESS_TOKEN }} # This token is required for consuming the Actions re-run API to automatically re-run the last failed workflow and also for storing the signatures in a remote repository if required. More details below.
