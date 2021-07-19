@@ -20,4 +20,4 @@ jobs:
           PERSONAL_ACCESS_TOKEN : ${{ secrets.PERSONAL_ACCESS_TOKEN }} # This token is required for consuming the Actions re-run API to automatically re-run the last failed workflow and also for storing the signatures in a remote repository if required. More details below.
         with:
           form-path: 'signature-form.yml' # The document committers will see when they sign.
-          ignore-list: '@MAINTAINER'
+          ignore-list: '@CONTRIBUTOR'
